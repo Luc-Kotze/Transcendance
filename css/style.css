@@ -74,6 +74,10 @@
 	background: #171717;
 	height: 100vh;
 	flex: 1;
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	padding-bottom: 70px;
 }
 
 .name-chat {
@@ -163,17 +167,95 @@
 	color: #000;
 }
 
+/* Chat input */
+.send-section {
+	position: absolute;
+	width: 90%;
+	height: 70px;
+	border-top: 1px solid #484848;
+	bottom: 0;
+	left: 50%;
+	transform: translateX(-50%);
+	display: flex;
+}
+
+.chat-input {
+	height: 100%;
+	width: 92%;
+}
+
+.send-message-input {
+	width: 100%;
+	height: 100%;
+	background: #171717;
+	border: none;
+	outline: none;
+	color: #868686;
+}
+
+.send-message-input::placeholder {
+	opacity: 0.5;
+	font-size: 18px;
+}
+.send-message-input:focus::placeholder {
+	opacity: 0;
+}
+
+.send-btn-container {
+	width: 300px;
+	display: flex;
+}
+
+.chat-send-btn {
+	width: 112px;
+	height: 40px;
+	border-radius: 5px;
+	outline: none;
+	border: none;
+	background: #404040;
+	color: #e9e9e9;
+	font-size: 17px;
+	cursor: pointer;
+	margin-top: 14px;
+	margin-left: 10px;
+}
+
+.chat-send-btn:active {
+	transform: scale(0.95);
+}
+
+.chat-section {
+	flex: 1;
+	overflow: auto;
+	display: flex;
+	justify-content: flex-end;
+	align-items: flex-end;
+}
+
+.chat-boxes {
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+}
+
 /* Speech Bubbles */
 
 .sb-box {
-	width: 300px;
-	background: #00bfb6;
+	width: fit-content;
+	max-width: 550px;
+	background: #008881;
 	padding: 20px;
-	text-align: center;
 	font-weight: 900;
-	color: #fff;
-	font-family: arial;
+	font-family: "Poppins", sans-serif;
 	position: relative;
+	border-radius: 6px;
+	margin-top: 30px;
+	margin-right: 90px;
+	font-weight: 100;
+	font-size: 14px;
+	color: #000;
+	word-wrap: break-word;
 }
 
 .sb1:before {
@@ -181,9 +263,9 @@
 	width: 0px;
 	height: 0px;
 	position: absolute;
-	border-left: 10px solid #00bfb6;
+	border-left: 10px solid #008881;
 	border-right: 10px solid transparent;
-	border-top: 10px solid #00bfb6;
+	border-top: 10px solid #008881;
 	border-bottom: 10px solid transparent;
 	right: -20px;
 	top: 6px;
@@ -192,23 +274,23 @@
 /* Custom Scrollbar */
 
 /* width */
-.contacts-container::-webkit-scrollbar {
+::-webkit-scrollbar {
 	width: 10px;
 }
 
 /* Track */
-.contacts-container::-webkit-scrollbar-track {
+::-webkit-scrollbar-track {
 	background: #000;
 }
 
 /* Handle */
-.contacts-container::-webkit-scrollbar-thumb {
+::-webkit-scrollbar-thumb {
 	background: #888;
 	border-radius: 4px;
 }
 
 /* Handle on hover */
-.contacts-container::-webkit-scrollbar-thumb:hover {
+::-webkit-scrollbar-thumb:hover {
 	background: #555;
 }
 
@@ -245,6 +327,15 @@
 		transform: scale(0);
 		opacity: 0;
 		display: none;
+	}
+}
+
+@keyframes opacityTo0 {
+	0% {
+		opacity: 1;
+	}
+	100% {
+		opacity: 0;
 	}
 }
 

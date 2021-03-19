@@ -59,7 +59,30 @@
                     </div>
                 </div>
                 <div class="chat-section">
-                    <div class="sb-box sb1"></div>
+                    <div class="chat-boxes">
+                        <div class="sb-box sb1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem, aut
+                            voluptate veritatis minus beatae nam voluptatem ducimus deleniti ipsam facere.</div>
+                        <div class="sb-box sb1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui, sed.</div>
+                        <div class="sb-box sb1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui, sed.</div>
+                        <div class="sb-box sb1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui, sed.</div>
+                        <div class="sb-box sb1">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis,
+                            pariatur? Quod provident, aliquam quidem eum nemo molestias at a porro non sint cupiditate
+                            nostrum tempore nisi ratione. Exercitationem reprehenderit dignissimos, debitis adipisci
+                            voluptatibus excepturi, asperiores tempore aperiam deleniti delectus enim.</div>
+                        <div class="sb-box sb1">aawe</div>
+                        <div class="sb-box sb1">AWEaweawe</div>
+                    </div>
+
+
+                </div>
+                <div class="send-section">
+                    <div class="chat-input">
+                        <input type="text" class="send-message-input" placeholder="Type your message here...">
+                    </div>
+
+                    <button type="button" class="chat-send-btn">Send</button>
+
+
                 </div>
             </div>
         </div>
