@@ -81,9 +81,11 @@ $(".menu-icon").click(function () {
 
 window.onclick = function (event) {
 	const el = $(event.target);
-	console.log(el.parents().find(".menu-icon").length);
+	console.log($(".menu-icon").hasClass("show"));
 	if (!el.hasClass("menu-icon") && el.closest(".menu-icon").length == 0) {
-		$(".menu-icon").removeClass("show");
-		$(".menu-icon").addClass("hide");
+		if ($(".menu-icon").hasClass("show")) {
+			$(".menu-icon").removeClass("show");
+			$(".menu-icon").addClass("hide");
+		}
 	}
 };
