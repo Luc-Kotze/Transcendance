@@ -72,28 +72,18 @@ $(".sign-in-btn").on("click", function () {
 
 $(".menu-icon").click(function () {
 	console.log("drol");
-	$("#myDropdown").toggleClass("show popin-anim");
+	$(".menu-icon").toggleClass("show");
+
+	if (!$(".menu-icon").hasClass("show")) {
+		$(".menu-icon").addClass("hide");
+	}
 });
 
 window.onclick = function (event) {
-	if (!event.target.matches(".fa-ellipsis-v")) {
-		var dropdowns = document.getElementsByClassName("dropdown-content");
-		var i;
-		for (i = 0; i < dropdowns.length; i++) {
-			var openDropdown = dropdowns[i];
-			function wait(ms) {
-				var start = new Date().getTime();
-				var end = start;
-				while (end < start + ms) {
-					end = new Date().getTime();
-				}
-			}
-			if (openDropdown.classList.contains("show")) {
-				wait(0);
-				openDropdown.classList.add("popout-anim");
-
-				openDropdown.classList.remove("popin-anim");
-			}
-		}
+	const el = $(event.target);
+	console.log(el.parents().find(".menu-icon").length);
+	if (!el.hasClass("menu-icon") && el.closest(".menu-icon").length == 0) {
+		$(".menu-icon").removeClass("show");
+		$(".menu-icon").addClass("hide");
 	}
 };

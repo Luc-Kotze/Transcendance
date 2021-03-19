@@ -110,6 +110,15 @@
 	top: 38px;
 }
 
+.menu-icon.hide #myDropdown {
+	animation: popout 0.2s ease forwards;
+}
+
+.menu-icon.show #myDropdown {
+	pointer-events: all;
+	animation: popin 0.2s ease forwards;
+}
+
 /* Dropdown Menu */
 
 .dropdown {
@@ -118,7 +127,8 @@
 }
 
 .dropdown-content {
-	display: none;
+	opacity: 0;
+	pointer-events: none;
 	position: absolute;
 	left: -177px;
 	background-color: #f1f1f1;
@@ -145,19 +155,36 @@
 	display: block;
 }
 
-/* Animation Classes */
-
-.popin-anim {
-	animation: popin 0.2s ease forwards;
-}
-
-.popout-anim {
-	animation: popout 0.4s ease forwards;
-}
-
 .drol {
 	color: #000;
 }
+
+/* Speech Bubbles */
+
+.sb-box {
+	width: 300px;
+	background: #00bfb6;
+	padding: 20px;
+	text-align: center;
+	font-weight: 900;
+	color: #fff;
+	font-family: arial;
+	position: relative;
+}
+
+.sb1:before {
+	content: "";
+	width: 0px;
+	height: 0px;
+	position: absolute;
+	border-left: 10px solid #00bfb6;
+	border-right: 10px solid transparent;
+	border-top: 10px solid #00bfb6;
+	border-bottom: 10px solid transparent;
+	right: -20px;
+	top: 6px;
+}
+
 /* Custom Scrollbar */
 
 /* width */
@@ -179,6 +206,16 @@
 /* Handle on hover */
 .contacts-container::-webkit-scrollbar-thumb:hover {
 	background: #555;
+}
+
+/* Animation Classes */
+
+.popin-anim {
+	animation: popin 0.2s ease forwards;
+}
+
+.popout-anim {
+	animation: popout 0.4s ease forwards;
 }
 
 /* Animations */

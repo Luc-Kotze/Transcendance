@@ -57,12 +57,10 @@
                             </div>
                         </i>
                     </div>
-
-
-
-
                 </div>
-                <div class="chat-section"></div>
+                <div class="chat-section">
+                    <div class="sb-box sb1"></div>
+                </div>
             </div>
         </div>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js"
