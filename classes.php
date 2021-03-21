@@ -1,5 +1,9 @@
 <?php 
 
+class DB {
+    
+}
+
 class Users {
     public $username;
 }
@@ -7,5 +11,8 @@ class Users {
 class Messages {
     public $messages;
 }
+
+
+
 
 ?>
