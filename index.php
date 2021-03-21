@@ -1,5 +1,8 @@
 <?php 
-    require "classes.php";
+    require('functions.php');
+
+    $currentUser = new User($_SESSION['id']);
+    $users = User::getUsers();
 ?>
 
 <!DOCTYPE html>
@@ -24,28 +27,10 @@
                 </div>
 
                 <div class="chats">
-                    <div class="chat-info">
-                        <div class="circle"></div>
-                        <div class="name-chat">
-                            <h3>Dylan</h3>
-                            <h4>Yo whats up? So ive been working on things today so yeah</h4>
-                        </div>
-                    </div>
-                    <div class="chat-info">
-                        <div class="circle"></div>
-                        <div class="name-chat">
-                            <h3>Dylan</h3>
-                            <h4>Yo whats up? So ive been working..</h4>
-                        </div>
-                    </div>
-                    <div class="chat-info">
-                        <div class="circle"></div>
-                        <div class="name-chat">
-                            <h3>Dylan</h3>
-                            <h4>Yo whats up? So ive been working..</h4>
-                        </div>
-                    </div>
-
+                    <?php foreach($users as $user) : ?>
+                    <?php $user = new User($user['id']); ?>
+                    <?php $user->listHTML(); ?>
+                    <?php endforeach; ?>
                 </div>
             </div>
             <div class="main-chat">
