@@ -81,7 +81,6 @@ $(".menu-icon").click(function () {
 
 window.onclick = function (event) {
 	const el = $(event.target);
-	console.log($(".menu-icon").hasClass("show"));
 	if (!el.hasClass("menu-icon") && el.closest(".menu-icon").length == 0) {
 		if ($(".menu-icon").hasClass("show")) {
 			$(".menu-icon").removeClass("show");

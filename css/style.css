@@ -29,6 +29,12 @@
 	border-bottom: 1px solid #1d1c1c;
 }
 
+.contact-head h2::selection {
+	background: rgba(5 208 208 / 70%);
+	color: #fff;
+	text-shadow: 0px 0px 5px;
+}
+
 .circle {
 	width: 50px;
 	height: 50px;
@@ -198,6 +204,7 @@
 	font-size: 18px;
 }
 .send-message-input:focus::placeholder {
+	transition: all 0.2s ease;
 	opacity: 0;
 }
 
@@ -256,6 +263,11 @@
 	font-size: 14px;
 	color: #000;
 	word-wrap: break-word;
+	transition: box-shadow 0.5s ease;
+}
+
+.sb-box:hover {
+	box-shadow: 0px 0px 20px rgb(5 208 208 / 28%);
 }
 
 .sb1:before {
@@ -269,6 +281,11 @@
 	border-bottom: 10px solid transparent;
 	right: -20px;
 	top: 6px;
+}
+.sb-box::selection {
+	background: rgba(5 208 208 / 50%);
+	color: #fff;
+	text-shadow: 0px 0px 5px;
 }
 
 /* Custom Scrollbar */
