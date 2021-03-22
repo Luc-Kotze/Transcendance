@@ -91,7 +91,7 @@
                 </div>
 
             </div>
-
+            <input type="submit" class="btn" value="Sign Up">
             <p>Already have an account?<button type="button" class="sign-in-btn">Login</button></p>
 
         </form>

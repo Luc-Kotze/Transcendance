@@ -76,6 +76,22 @@ $(".chat-send-btn").click(function () {
 	return false;
 });
 
+$("body").on("click", ".chat-info", function () {
+	const id = $(this).data("user");
+	const username = $(this).data("username");
+	console.log(id, username);
+	$(".main-chat-name").text(username);
+	$(".sb-box").show();
+	$(".chat-head").show();
+	$(".send-section").show();
+	window.location.href = "http://localhost/dylan/chat-app/?user=" + username;
+});
+if ($(".main-chat-name").text() == "") {
+	$(".sb-box").hide();
+	$(".chat-head").hide();
+	$(".send-section").hide();
+}
+
 // Form Animations
 
 $(".sign-up-btn").on("click", function () {

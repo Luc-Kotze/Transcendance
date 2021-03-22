@@ -8,7 +8,9 @@
     }
     $currentUser = new User($_SESSION['id']);
     $users = User::getUsers();
-    $messages = Message::getChat(7,1);
+    $messages = Message::getChat(7, 1);
+   
+    
 ?>
 
 <!DOCTYPE html>
@@ -42,7 +44,7 @@
             <div class="main-chat">
                 <div class="chat-head">
                     <div class="circle"></div>
-                    <div class="main-chat-name">Dylan</div>
+                    <div class="main-chat-name"></div>
                     <div class="menu-icon">
                         <i class="fas fa-ellipsis-v">
                             <div class="dropdown">

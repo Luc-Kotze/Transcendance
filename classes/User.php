@@ -33,7 +33,7 @@ class User {
 
     public function listHTML() {
         ?>
-<div class="chat-info">
+<div class="chat-info" data-user="<?php echo $this->id ?>" data-username="<?php echo $this->name ?>">
     <div class="circle"></div>
     <div class="name-chat">
         <h3><?= $this->getName() ?> </h3>

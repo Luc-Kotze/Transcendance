@@ -30,6 +30,8 @@ class Message {
         return $this->userId == $_SESSION['id'];
     }
 
+   
+
     public static function send($content, $recipientId) {
         global $db;
         
@@ -57,19 +59,20 @@ class Message {
         return date("H:i A", strtotime($this->date));
     }
 
-    public static function message_html($message) {
-        ob_start();
-        ?>
-<div class="chat-boxes">
-    <?php foreach ($messages as $message): ?>
-    <div class="sb-box sb1 <?= !$message->isMine() ? "not-mine" : '' ?>">
-        <?= $message->getContent(); ?>
-        <div class="date"><?= $message->getTime(); ?></div>
-    </div>
+    public function messageDisplay() {
+        
 
-    <?php endforeach; ?>
-    <?php
-        $html = ob_get_clean();
-        return $html;
+$html = '<div class="chat-boxes">
+    <?php foreach ($messages as $message): ?>
+<div class="sb-box sb1 <?= !$message->isMine() ? "not-mine" : "" ?>">
+    <?= $message->getContent(); ?>
+    <div class="date"><?= $message->getTime(); ?></div>
+</div>
+
+<?php endforeach; ?>
+
+<?php';
+
+return $html;
     }
 }
