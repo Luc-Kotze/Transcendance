@@ -48,8 +48,29 @@ $("#login-form").submit(function () {
 		},
 		url: "http://localhost/dylan/chat-app/ajax.php",
 		success: (data) => {
-			// window.location.href = "http://localhost/dylan/chat-app/";
+			window.location.href = "http://localhost/dylan/chat-app/";
 			console.log(data);
+		},
+	});
+
+	return false;
+});
+
+// Send Message
+
+$(".send-message-input").click(function () {
+	console.log("awe");
+	$.ajax({
+		type: "post",
+		dataType: "json",
+		data: {
+			content: $(".send-message-input").val(),
+			recipientId: $(".recipient-id").val(),
+			action: "sendMessage",
+		},
+		url: "http://localhost/dylan/chat-app/ajax.php",
+		success: (data) => {
+			console.log(content);
 		},
 	});
 

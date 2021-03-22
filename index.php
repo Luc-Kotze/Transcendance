@@ -1,8 +1,14 @@
 <?php 
     require('functions.php');
 
+
+    if (User::isLoggedIn() == false) {
+        header("Location: http://localhost/dylan/chat-app/views/login.php");
+        exit();
+    }
     $currentUser = new User($_SESSION['id']);
     $users = User::getUsers();
+    $messages = Message::getChat(7,1);
 ?>
 
 <!DOCTYPE html>
@@ -49,27 +55,40 @@
                 </div>
                 <div class="chat-section">
                     <div class="chat-boxes">
-                        <div class="sb-box sb1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem, aut
-                            voluptate veritatis minus beatae nam voluptatem ducimus deleniti ipsam facere.</div>
-                        <div class="sb-box sb1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui, sed.</div>
-                        <div class="sb-box sb1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui, sed.</div>
-                        <div class="sb-box sb1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui, sed.</div>
+                        <?php foreach ($messages as $message): ?>
+                        <div class="sb-box sb1 <?= !$message->isMine() ? "not-mine" : '' ?>">
+                            <?= $message->getContent(); ?>
+                            <div class="date"><?= $message->getTime(); ?></div>
+                        </div>
+
+                        <?php endforeach; ?>
+                        <!--                         
+                        <div class="sb-box sb1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui, sed.<span
+                                class="date">3:20 AM</span></div>
+                        <div class="sb-box sb1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui, sed.<span
+                                class="date">3:20 AM</span></div>
+                        <div class="sb-box sb1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui, sed.<span
+                                class="date">3:20 AM</span></div>
                         <div class="sb-box sb1">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis,
                             pariatur? Quod provident, aliquam quidem eum nemo molestias at a porro non sint cupiditate
                             nostrum tempore nisi ratione. Exercitationem reprehenderit dignissimos, debitis adipisci
-                            voluptatibus excepturi, asperiores tempore aperiam deleniti delectus enim.</div>
-                        <div class="sb-box sb1">aawe</div>
-                        <div class="sb-box sb1">AWEaweawe</div>
+                            voluptatibus excepturi, asperiores tempore aperiam deleniti delectus enim. <span
+                                class="date">3:20 AM</span></div>
+
+                        <div class="sb-box sb1">aawe<span class="date">3:20 AM</span></div>
+                        <div class="sb-box sb1">AWEaweawe<span class="date">3:20 AM</span></div> -->
                     </div>
 
 
                 </div>
                 <div class="send-section">
                     <div class="chat-input">
-                        <input type="text" class="send-message-input" placeholder="Type your message here...">
+                        <input type="hidden" class="rcipient-id" name="recipient-id" value="7">
+                        <input type="text" class="send-message-input" name="content"
+                            placeholder="Type your message here...">
                     </div>
 
-                    <button type="button" class="chat-send-btn">Send</button>
+                    <button class="chat-send-btn">Send</button>
 
 
                 </div>

@@ -17,6 +17,7 @@ class DB {
         $valuesString = $this->constructInsertValuesSQL($values);
         $sql = "INSERT INTO $table ($columnsString)
         VALUES ($valuesString)";
+        var_dump($sql);
         if ($this->query($sql)) {
             return $this->getResult($table, mysqli_insert_id($this->getLink()));
         }
@@ -65,6 +66,12 @@ class DB {
 
     public function getAllByKey($table, $key, $value) {
         $sql = $this->query("SELECT * FROM $table WHERE $key = '$value'"); 
+        $results = mysqli_fetch_all($sql, MYSQLI_ASSOC);
+        return $results;
+    }
+
+    public function getAllByKeysOr($table, $key1, $value1, $key2, $value2) {
+        $sql = $this->query("SELECT * FROM $table WHERE ($key1 = '$value1' AND $key2 = '$value2') OR ($key1 = '$value2' AND $key2 = '$value1')"); 
         $results = mysqli_fetch_all($sql, MYSQLI_ASSOC);
         return $results;
     }

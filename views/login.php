@@ -41,7 +41,7 @@
                     </div>
                     <div class="form-control password-input">
 
-                        <input type="text" id="password-login" name="password" class="input" required>
+                        <input type="password" id="password-login" name="password" class="input" required>
                         <label for="password-login">Password</label>
                     </div>
                 </div>
@@ -85,11 +85,13 @@
                 </div>
                 <div class="form-control password-input">
 
-                    <input type="text" id="password-signup" name="password" class="input" required>
+                    <input type="password" id="password-signup" name="password" class="input" required>
                     <label for="password-signup">Password</label>
+
                 </div>
+
             </div>
-            <input type="submit" class="btn" value="Sign Up">
+
             <p>Already have an account?<button type="button" class="sign-in-btn">Login</button></p>
 
         </form>
