@@ -62,6 +62,9 @@
                         </div>
 
                         <?php endforeach; ?>
+
+
+
                         <!--                         
                         <div class="sb-box sb1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui, sed.<span
                                 class="date">3:20 AM</span></div>
@@ -83,7 +86,7 @@
                 </div>
                 <div class="send-section">
                     <div class="chat-input">
-                        <input type="hidden" class="rcipient-id" name="recipient-id" value="7">
+                        <input type="hidden" class="recipient-id" name="recipient-id" value="7">
                         <input type="text" class="send-message-input" name="content"
                             placeholder="Type your message here...">
                     </div>

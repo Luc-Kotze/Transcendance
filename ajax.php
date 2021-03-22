@@ -20,7 +20,7 @@ if ($action == 'signin') {
 }
 
 if ($action == 'sendMessage') {
-    $result = Message::send($_POST['content'], $_POST['recipient-id']);
+    $result = Message::send($_POST['content'], $_POST['recipientId']);
     echo json_encode($result);
     exit();
 }

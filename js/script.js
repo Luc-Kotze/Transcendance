@@ -58,8 +58,7 @@ $("#login-form").submit(function () {
 
 // Send Message
 
-$(".send-message-input").click(function () {
-	console.log("awe");
+$(".chat-send-btn").click(function () {
 	$.ajax({
 		type: "post",
 		dataType: "json",
@@ -70,7 +69,7 @@ $(".send-message-input").click(function () {
 		},
 		url: "http://localhost/dylan/chat-app/ajax.php",
 		success: (data) => {
-			console.log(content);
+			$(".send-message-input").val("");
 		},
 	});
 

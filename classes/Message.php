@@ -32,6 +32,7 @@ class Message {
 
     public static function send($content, $recipientId) {
         global $db;
+        
         $date = date("Y-m-d H:i:s");
         $message = $db->insert(self::$table, [
             'user_id' => $_SESSION['id'], 
@@ -54,5 +55,21 @@ class Message {
 
     public function getTime() {
         return date("H:i A", strtotime($this->date));
+    }
+
+    public static function message_html($message) {
+        ob_start();
+        ?>
+<div class="chat-boxes">
+    <?php foreach ($messages as $message): ?>
+    <div class="sb-box sb1 <?= !$message->isMine() ? "not-mine" : '' ?>">
+        <?= $message->getContent(); ?>
+        <div class="date"><?= $message->getTime(); ?></div>
+    </div>
+
+    <?php endforeach; ?>
+    <?php
+        $html = ob_get_clean();
+        return $html;
     }
 }

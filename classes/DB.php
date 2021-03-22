@@ -17,7 +17,6 @@ class DB {
         $valuesString = $this->constructInsertValuesSQL($values);
         $sql = "INSERT INTO $table ($columnsString)
         VALUES ($valuesString)";
-        var_dump($sql);
         if ($this->query($sql)) {
             return $this->getResult($table, mysqli_insert_id($this->getLink()));
         }
