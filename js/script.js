@@ -70,6 +70,7 @@ $(".chat-send-btn").click(function () {
 		url: "http://localhost/dylan/chat-app/ajax.php",
 		success: (data) => {
 			$(".send-message-input").val("");
+			$(".chat-boxes").append(data.html);
 		},
 	});
 
@@ -77,14 +78,14 @@ $(".chat-send-btn").click(function () {
 });
 
 $("body").on("click", ".chat-info", function () {
-	const id = $(this).data("user");
+	const id = $(this).data("id");
 	const username = $(this).data("username");
 	console.log(id, username);
 	$(".main-chat-name").text(username);
 	$(".sb-box").show();
 	$(".chat-head").show();
 	$(".send-section").show();
-	window.location.href = "http://localhost/dylan/chat-app/?user=" + username;
+	window.location.href = "http://localhost/dylan/chat-app/?id=" + id;
 });
 if ($(".main-chat-name").text() == "") {
 	$(".sb-box").hide();

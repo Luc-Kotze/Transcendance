@@ -21,6 +21,8 @@ if ($action == 'signin') {
 
 if ($action == 'sendMessage') {
     $result = Message::send($_POST['content'], $_POST['recipientId']);
-    echo json_encode($result);
+    echo json_encode([
+        'html' => $result->html()
+    ]);
     exit();
 }

@@ -8,8 +8,16 @@
     }
     $currentUser = new User($_SESSION['id']);
     $users = User::getUsers();
-    $messages = Message::getChat(7, 1);
-   
+    $recipient = isset($_GET['id']) ? new User($_GET['id']) : false;
+    $recipientId = $recipient ? $recipient->getID() : "";
+    
+    if ($recipient) {
+        $messages = Message::getChat($_SESSION['id'], $recipient->getID());
+    } else {
+        $messages = [];
+    }
+    $messages = array_reverse($messages);
+    
     
 ?>
 
@@ -36,6 +44,7 @@
 
                 <div class="chats">
                     <?php foreach($users as $user) : ?>
+                    <?php if ($user['id'] == $_SESSION['id']) continue; ?>
                     <?php $user = new User($user['id']); ?>
                     <?php $user->listHTML(); ?>
                     <?php endforeach; ?>
@@ -44,7 +53,7 @@
             <div class="main-chat">
                 <div class="chat-head">
                     <div class="circle"></div>
-                    <div class="main-chat-name"></div>
+                    <div class="main-chat-name"><?= $recipient ? $recipient->getName() : "" ?></div>
                     <div class="menu-icon">
                         <i class="fas fa-ellipsis-v">
                             <div class="dropdown">
@@ -58,11 +67,7 @@
                 <div class="chat-section">
                     <div class="chat-boxes">
                         <?php foreach ($messages as $message): ?>
-                        <div class="sb-box sb1 <?= !$message->isMine() ? "not-mine" : '' ?>">
-                            <?= $message->getContent(); ?>
-                            <div class="date"><?= $message->getTime(); ?></div>
-                        </div>
-
+                        <?php echo $message->html() ?>
                         <?php endforeach; ?>
 
 
@@ -88,7 +93,7 @@
                 </div>
                 <div class="send-section">
                     <div class="chat-input">
-                        <input type="hidden" class="recipient-id" name="recipient-id" value="7">
+                        <input type="hidden" class="recipient-id" name="recipient-id" value="<?= $recipientId; ?>">
                         <input type="text" class="send-message-input" name="content"
                             placeholder="Type your message here...">
                     </div>

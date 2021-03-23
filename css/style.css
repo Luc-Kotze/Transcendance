@@ -263,6 +263,7 @@
 .sb-box {
 	width: fit-content;
 	max-width: 550px;
+	min-width: 85px;
 	background: #008881;
 	padding: 20px;
 	padding-bottom: 25px;
