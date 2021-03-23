@@ -16,9 +16,8 @@
     } else {
         $messages = [];
     }
-    $messages = array_reverse($messages);
     
-    
+
 ?>
 
 <!DOCTYPE html>

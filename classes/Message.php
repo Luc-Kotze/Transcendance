@@ -53,6 +53,19 @@ class Message {
         return $results;
     }
 
+    public static function getLast($userId, $recipientId) {
+
+        global $db;
+        $messages = $db->getAllByKeysAnd(self::$table, 'user_id', $userId, 'recipient_id', $recipientId);
+        $results = [];
+        foreach ($messages as $message) {
+            $results[] = new Message($message['id']);
+        }
+
+        return end($results);
+
+    }
+
     public function getTime() {
         return date("H:i A", strtotime($this->date));
     }

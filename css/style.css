@@ -79,7 +79,7 @@
 }
 
 .chats .chat-info h4 {
-	color: #fff;
+	color: #bdbdbdc4;
 	font-weight: 100;
 	font-size: 11px;
 	width: 200px;
@@ -413,5 +413,17 @@
 @media (max-width: 900px) {
 	.contacts-container {
 		display: none;
+	}
+}
+
+@media (max-width: 773px) {
+	.sb-box {
+		max-width: 250px;
+	}
+}
+
+@media (max-width: 550px) {
+	.sb-box {
+		max-width: 140px;
 	}
 }

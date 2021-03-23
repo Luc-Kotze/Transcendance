@@ -75,6 +75,12 @@ class DB {
         return $results;
     }
 
+    public function getAllByKeysAnd($table, $key1, $value1, $key2, $value2) {
+        $sql = $this->query("SELECT * FROM $table WHERE ($key1 = '$value1' AND $key2 = '$value2')");
+        $results = mysqli_fetch_all($sql, MYSQLI_ASSOC);
+        return $results;
+    }
+
     public function query($sql) {
         return mysqli_query($this->getLink(), $sql);
     }

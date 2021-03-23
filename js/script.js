@@ -1,6 +1,12 @@
 let deleteEntryId;
 const ajaxURL = "http://localhost/dylan/crud-app/ajax.php";
 
+//On Page Load
+
+$(window).on("load", function () {
+	$(".chat-section").scrollToBottom();
+});
+
 // Letter Jumps
 
 const labels = document.querySelectorAll("label");
@@ -71,6 +77,8 @@ $(".chat-send-btn").click(function () {
 		success: (data) => {
 			$(".send-message-input").val("");
 			$(".chat-boxes").append(data.html);
+			$(".chat-section").scrollToBottom();
+			$(".chat-info").text();
 		},
 	});
 
@@ -92,6 +100,12 @@ if ($(".main-chat-name").text() == "") {
 	$(".chat-head").hide();
 	$(".send-section").hide();
 }
+
+// Scroll To Bottom
+
+$.fn.scrollToBottom = function () {
+	this.animate({ scrollTop: this[0].scrollHeight }, 100);
+};
 
 // Form Animations
 

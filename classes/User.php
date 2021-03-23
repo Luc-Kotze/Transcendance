@@ -31,13 +31,16 @@ class User {
         return $this->password;
     }
 
+    
+
     public function listHTML() {
+        $lastMessage = Message::getLast($_SESSION['id'], $this->getID());
         ?>
 <div class="chat-info" data-id="<?php echo $this->id ?>" data-username="<?php echo $this->name ?>">
     <div class="circle"></div>
     <div class="name-chat">
-        <h3><?= $this->getName() ?> </h3>
-        <h4>Yo whats up? So ive been working on things today so yeah</h4>
+        <h3><?= $this->getName()?> </h3>
+        <h4><?= $lastMessage ? $lastMessage->getContent() : ""; ?></h4>
     </div>
 </div>
 <?php
