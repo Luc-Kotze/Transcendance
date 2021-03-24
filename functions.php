@@ -4,9 +4,11 @@
     require('classes/Message.php');
 
     session_start();
+ 
 
-    global $db;
-    $db = new DB();
 
-   
- ?>
+global $db;
+$db = new DB();
+
+
+?>

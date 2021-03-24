@@ -66,7 +66,8 @@
 	padding-top: 15px;
 	border-bottom: 1px solid #1d1c1c;
 	padding-bottom: 15px;
-	transition: all ease 0.5s;
+	transition: background ease 0.5s;
+	cursor: pointer;
 }
 
 .chats .chat-info:hover {

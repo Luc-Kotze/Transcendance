@@ -55,7 +55,6 @@ $("#login-form").submit(function () {
 		url: "http://localhost/dylan/chat-app/ajax.php",
 		success: (data) => {
 			window.location.href = "http://localhost/dylan/chat-app/";
-			console.log(data);
 		},
 	});
 
@@ -88,7 +87,7 @@ $(".chat-send-btn").click(function () {
 $("body").on("click", ".chat-info", function () {
 	const id = $(this).data("id");
 	const username = $(this).data("username");
-	console.log(id, username);
+
 	$(".main-chat-name").text(username);
 	$(".sb-box").show();
 	$(".chat-head").show();
@@ -122,7 +121,6 @@ $(".sign-in-btn").on("click", function () {
 // Dropdown Menu
 
 $(".menu-icon").click(function () {
-	console.log("drol");
 	$(".menu-icon").toggleClass("show");
 
 	if (!$(".menu-icon").hasClass("show")) {

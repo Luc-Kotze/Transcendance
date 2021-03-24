@@ -17,6 +17,7 @@
         $messages = [];
     }
     
+    
 
 ?>
 
@@ -57,7 +58,7 @@
                         <i class="fas fa-ellipsis-v">
                             <div class="dropdown">
                                 <div id="myDropdown" class="dropdown-content">
-                                    <a href="#">Info</a>
+                                    <a id="log-out" href="http://localhost/dylan/chat-app/views/logout.php">Log Out</a>
                                 </div>
                             </div>
                         </i>
